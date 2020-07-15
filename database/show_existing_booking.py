@@ -12,4 +12,5 @@ class Show_existing_booking():
         time.sleep(3)
         query = "SELECT * FROM Bookings WHERE BookingID = {} ".format(booking_id)
         cursor.execute(query)
-        cursor.commit()
+        print(query)
+        # cursor.commit()

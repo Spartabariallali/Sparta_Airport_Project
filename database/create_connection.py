@@ -1,12 +1,12 @@
 import pyodbc
-import secret_file
+import SecretWeapons.secret_file
 
 
 class Database_OOP:
-    server = secret_file.server
-    database = secret_file.database
-    username = secret_file.username
-    password = secret_file.password
+    server = SecretWeapons.secret_file.server
+    database = SecretWeapons.secret_file.database
+    username = SecretWeapons.secret_file.username
+    password = SecretWeapons.secret_file.password
 
     # this method is specifically for establishing a connection
     def establish_connection(self):

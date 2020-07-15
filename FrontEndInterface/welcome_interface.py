@@ -1,5 +1,5 @@
 from menu_interface import Menu_interface
-
+from Airport.terms_and_conditions import View_terms_and_conditions
 class Welcome_interface():
 
     def user_interaction_passengers(self):
@@ -11,17 +11,20 @@ class Welcome_interface():
                          "-> Amend an existing booking [E]\n" + "-> View Terms & Conditions of booking [H]\n" + "-> Count down to booking [A]\n" +\
                             "-> For help type [H]\n"
         print(user_help)
-        passenger_input = input("Please select from the options.")
-        if passenger_input == 't':
+        passenger_input = input("Please select from the options.").upper()
+        if passenger_input == 'T':
             obj1 = Menu_interface()
             obj1.create_booking()
-        elif passenger_input == "e":
+        elif passenger_input == "E":
             obj1 = Menu_interface()
             obj1.amend_existing_booking()
-        elif passenger_input == "s":
+        elif passenger_input == "S":
             obj1 = Menu_interface()
             obj1.view_existing_booking()
-        elif passenger_input == "h":
+        elif passenger_input == "H":
+            obj1 = View_terms_and_conditions()
+            obj1.run_t_and_c()
+
             pass # Here I am going to read in a picture which contains the terms and conditions for the booking
 
 

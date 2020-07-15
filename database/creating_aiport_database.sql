@@ -2,6 +2,7 @@ CREATE DATABASE Airport_database_grp_3;
 DROP DATABASE Airport
 USE Airport_database_grp_3;
 DROP TABLE Passengers
+
 CREATE TABLE Passengers (
      PassengerID INTEGER NOT NULL IDENTITY(1,1)
     ,title VARCHAR(10)
@@ -13,6 +14,7 @@ CREATE TABLE Passengers (
     ,travel_documentation VARCHAR(240)
     ,travel_doc_number INT
     ,PRIMARY KEY (PassengerID)
+    -- ,FOREIGN KEY (BookingID) REFERENCES Bookings(BookingID)
 )
 
 CREATE TABLE Staff (
@@ -29,9 +31,12 @@ CREATE TABLE Staff (
 
 CREATE TABLE Bookings (
     BookingID INTEGER NOT NULL IDENTITY(1,1)
+    ,booking_date DATE
+    ,booking_total_fare FLOAT
     ,destination VARCHAR(240)
     ,flight_date VARCHAR(240)
     ,terminal VARCHAR(240)
+    ,number_of_passengers INT
     ,PRIMARY KEY (BookingID)
 )
 

@@ -1,7 +1,6 @@
 import time
-from database.create_connection import Database_OOP
-from FrontEndInterface.menu_interface import Menu_interface
-from FrontEndInterface.welcome_interface import Welcome_interface
+from create_connection import Database_OOP
+
 
 class Show_existing_booking():
 

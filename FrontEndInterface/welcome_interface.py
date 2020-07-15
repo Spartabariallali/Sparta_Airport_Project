@@ -1,4 +1,4 @@
-from FrontEndInterface.menu_interface import Menu_interface
+from menu_interface import Menu_interface
 
 class Welcome_interface():
 

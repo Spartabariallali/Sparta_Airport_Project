@@ -1,5 +1,5 @@
 import time
-from database.create_connection import Database_OOP
+from create_connection import Database_OOP
 # Potentially create an iteration where if the user cancels their tickets too close to the time of the flight then
 # they are only eligible for a voucher
 
@@ -13,7 +13,7 @@ class Deleting_passenger_info():
         unique_number = int(input("Finally, please provide us with your PassengerID number that was given to you when you made your booking \n"))
         print("One moment please....")
         time.sleep(2)
-        with open("../People/user_feedback.txt", "a+") as file:
+        with open("user_feedback.txt", "a+") as file:
             file.write(feedback)
         # now time to remove this information from the database
         obj1 = Database_OOP()
@@ -28,5 +28,5 @@ class Deleting_passenger_info():
 
 
 
-obj = Deleting_passenger_info()
-obj.delete_info()
+# obj = Deleting_passenger_info()
+# obj.delete_info()

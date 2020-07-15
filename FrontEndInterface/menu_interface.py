@@ -1,10 +1,13 @@
 import time
 from FrontEndInterface.welcome_interface import Welcome_interface
 from database.deleting_passenger_info_from_database import Deleting_passenger_info
+from database.show_existing_booking import Show_existing_booking
+# Now I need to ask the passenger where they would like to fly to
 
 
 class Menu_interface():
     def create_booking(self):
+        # here all I would do is run the function that will talk about all the destinations etc
         passenger_information = []
         print("one moment please...")
         time.sleep(1)
@@ -60,7 +63,10 @@ class Menu_interface():
             obj1.user_interaction_passengers()
 
     def view_existing_booking(self):
-        print("One moment please... Loading your booking details!")
-        time.sleep(3)
+        obj1 = Show_existing_booking
+        obj1.existing_booking_query()
+        # booking_id = input("Please input your bookingID: ")
+        # print("One moment please... Loading your booking details!")
+        # time.sleep(3)
         # I would need to run a query that selects the booking info
         # I would need to use joins to select Passenger IDs e.g. where booking_ID == n

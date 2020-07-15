@@ -138,25 +138,55 @@ import translation module, based off of the country they pick we can add some tr
 
 class Choose_destination():
     def price_checker(self):
+        booking_info = []
         print("Thank you for choosing AgileAirlines as your provider, we will now tak you to the flight interface: ")
         print("One moment please... Your holiday of a lifetime awaits!!")
         time.sleep(3)
         print("---> Business [B]\n", "---> Economy [E]\n")
-        seat_class = input("What class would you like to fly on? ").upper()
+        seat_class = input("What class would you like to fly on? \n").upper()
         if seat_class == "B":
-            print(df_business)
+            print(df_business, "\n")
+            seat_class = "Business"
+            booking_info.append(seat_class)
+            print("Here is a list of all current flights available at Business Class\n")
+            print("Please now select what City you would like to travel to and whether you would like a One Way or Round Trip\n")
+            way_trip = input("Type [OW] for one way, [RT] for round trip: \n").upper()
+            if way_trip == "OW":
+                way_trip = "Business One Way"
+                booking_info.append(way_trip)
+            elif way_trip == "RT":
+                way_trip = "Business Round Trip"
+                booking_info.append(way_trip)
+            city = input("Please type the city the way it appears in the above table \n").capitalize()
+            booking_info.append(city)
+            print("You have chosen the {} ticket and the city is  {}".format(way_trip, city))
+            print("The price per Adult for this journey would be -->"), print(business[way_trip][city])
+
         elif seat_class == "E":
-            print(df_econ)
-        print("Here is a list of all current flights available at Business Class")
-        print("Please now select what City you would like to travel to and whether you would like a One Way or Round Trip")
-        way_trip = input("Type [OW] for one way, [RT] for round trip:")
-        if way_trip == "OW":
-            way_trip = "Business One Way"
-        elif way_trip == "RT":
-            way_trip == "Business Round Trip"
-        city = input("Please type the city the way it appears in the above table ").capitalize()
-        print("You have chosen {} and the city {}".format(way_trip, city))
-        print("The price per Adult for this journey would be -->"), print(business[way_trip][city])
+            print(df_econ, "\n")
+            seat_class = "Economy"
+            booking_info.append(seat_class)
+            print("Here is a list of all current flights available at Economy Class\n")
+            print("Please now select what City you would like to travel to and whether you would like a One Way or Round Trip\n")
+            way_trip = input("Type [OW] for one way, [RT] for round trip: \n")
+            if way_trip == "OW":
+                way_trip = "econ_one_way"
+                booking_info.append(way_trip)
+            elif way_trip == "RT":
+                way_trip = "econ_return"
+                booking_info.append(way_trip)
+            city = input("Please type the city the way it appears in the above table \n").capitalize()
+            booking_info.append(way_trip)
+            print("You have chosen the {} ticket and the city is {}".format(way_trip, city))
+            print("The price per Adult for this journey would be -->"), print(economy[way_trip][city])
+        print(booking_info)
+
+
+
+
+
+
+
 
 
 

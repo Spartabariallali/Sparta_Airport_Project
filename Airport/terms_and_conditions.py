@@ -3,9 +3,9 @@ from PIL import Image
 
 class View_terms_and_conditions():
     def run_t_and_c(self):
-        with open("AgileAirlines.png", "rb") as picture:
+        with open('1.jpg', "rb") as picture:
             pic = picture.read()
-            Image.open("AgileAirlines.png")
+            Image.open("1.jpg").show()
 
 
 

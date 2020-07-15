@@ -26,12 +26,12 @@ class Menu_interface():
         elif booking_change == "T":
             pass # I will need to make some sort of class that can change booking times and have the times of flights
         elif booking_change == "B":
-            pass
+            return
             # obj1 = Welcome_interface()
             # obj1.user_interaction_passengers()
 
     def view_existing_booking(self):
-        obj1 = Show_existing_booking
+        obj1 = Show_existing_booking()
         obj1.existing_booking_query()
         # booking_id = input("Please input your bookingID: ")
         # print("One moment please... Loading your booking details!")

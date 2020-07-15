@@ -50,3 +50,9 @@ we must be able to store their data
 - Being able to link the data stored in table through the usage of primary and foreign keys
 -
 -
+
+### Logical Ordering of Events
+
+- We want to be able to first ask them where they want to travel to
+- Then we will ask them for their personal details
+- Then we will create a booking card and booking id for them

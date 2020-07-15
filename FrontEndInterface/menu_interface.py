@@ -1,4 +1,5 @@
 import time
+from Airport.d
 # from welcome_interface import Welcome_interface
 from deleting_passenger_info_from_database import Deleting_passenger_info
 from show_existing_booking import Show_existing_booking
@@ -8,6 +9,7 @@ from adding_passenger_info_to_database import Adding_passenger_info
 
 class Menu_interface():
     def create_booking(self):
+        # Before this part I want to add their flights and their ticket prices
         obj1 = Adding_passenger_info()
         obj1.storing_passenger_info()
 

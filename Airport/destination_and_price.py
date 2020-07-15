@@ -157,7 +157,7 @@ class Choose_destination():
             elif way_trip == "RT":
                 way_trip = "Business Round Trip"
                 booking_info.append(way_trip)
-            city = input("Please type the city the way it appears in the above table \n").capitalize()
+            city = input("Please type the city the way it appears in the above table \n")
             booking_info.append(city)
             print("You have chosen the {} ticket and the city is  {}".format(way_trip, city))
             print("The price per Adult for this journey would be -->"), print(business[way_trip][city])
@@ -181,12 +181,23 @@ class Choose_destination():
             elif way_trip == "RT":
                 way_trip = "econ_return"
                 booking_info.append(way_trip)
-            city = input("Please type the city the way it appears in the above table \n").capitalize()
+            city = input("Please type the city the way it appears in the above table \n")
             booking_info.append(way_trip)
-            print("You have chosen the {} ticket and the city is {}".format(way_trip, city))
+            print("You have chosen the {} ticket and the city is {}\n".format(way_trip, city))
             print("The price per Adult for this journey would be -->"), print(economy[way_trip][city])
-            booking_info.append(economy[way_trip][city])
+            passengers = int(input("How many adults would you be booking for today?\n "))
+            print("Give us a moment, we're just calculating your price...\n")
+            time.sleep(3)
+            ticket_price = economy[way_trip][city]
+            total_price = (ticket_price * passengers)
+            proceed = input("The total booking price would be {}. Are you happy to proceed? Please type yes or no\n".format(total_price)).upper()
+            if proceed == "YES":
+                booking_info.append(total_price)
+            else:
+                print("Ohh that's a shame!, we will now take you back to the main menu...")
+                return False
         print(booking_info)
+        return booking_info
 
 
 

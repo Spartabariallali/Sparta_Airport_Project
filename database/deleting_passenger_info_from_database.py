@@ -14,7 +14,7 @@ class Deleting_passenger_info():
         print("One moment please....")
         time.sleep(2)
         with open("user_feedback.txt", "a+") as file:
-            file.write(feedback)
+            file.write("\n", unique_number, ": ", feedback)
         # now time to remove this information from the database
         obj1 = Database_OOP()
         cursor = obj1.establish_connection()

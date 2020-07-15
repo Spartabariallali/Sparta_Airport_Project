@@ -17,6 +17,7 @@ class Welcome_interface():
         if passenger_input == 'C':
             obj1 = Menu_interface()
             obj1.create_booking()
+            self.user_interaction_passengers()
         elif passenger_input == "A":
             obj1 = Menu_interface()
             obj1.amend_existing_booking()
@@ -24,9 +25,11 @@ class Welcome_interface():
         elif passenger_input == "E":
             obj1 = Menu_interface()
             obj1.view_existing_booking()
+            self.user_interaction_passengers()
         elif passenger_input == "T":
             obj1 = View_terms_and_conditions()  # Here I am going to read in a picture which contains the terms and conditions for the booking
             obj1.run_t_and_c()
+            self.user_interaction_passengers()
         elif passenger_input == "H":
             pass
         elif passenger_input == "D":

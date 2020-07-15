@@ -161,6 +161,12 @@ class Choose_destination():
             booking_info.append(city)
             print("You have chosen the {} ticket and the city is  {}".format(way_trip, city))
             print("The price per Adult for this journey would be -->"), print(business[way_trip][city])
+            proceed = input("Are you happy to proceed? Please type yes or no ").upper()
+            if proceed == "YES":
+                booking_info.append(business[way_trip][city])
+            else:
+                print("Ohh that's a shame!, we will now take you back to the main menu...")
+                return False
 
         elif seat_class == "E":
             print(df_econ, "\n")
@@ -179,7 +185,10 @@ class Choose_destination():
             booking_info.append(way_trip)
             print("You have chosen the {} ticket and the city is {}".format(way_trip, city))
             print("The price per Adult for this journey would be -->"), print(economy[way_trip][city])
+            booking_info.append(economy[way_trip][city])
         print(booking_info)
+
+
 
 
 

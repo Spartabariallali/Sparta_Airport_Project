@@ -10,10 +10,15 @@ from adding_passenger_info_to_database import Adding_passenger_info
 class Menu_interface():
     def create_booking(self):
         object1 = Choose_destination()
-        object1.price_checker()
+        checker = object1.price_checker()
+        if checker == False:
+            return
+        else:
+            obj1 = Adding_passenger_info()
+            obj1.storing_passenger_info()
         # Before this part I want to add their flights and their ticket prices
-        obj1 = Adding_passenger_info()
-        obj1.storing_passenger_info()
+        # obj1 = Adding_passenger_info()
+        # obj1.storing_passenger_info()
 
 
     def amend_existing_booking(self):

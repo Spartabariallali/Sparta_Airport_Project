@@ -63,6 +63,32 @@ df_econ = pd.DataFrame({ "Economy OneWay": {"Paris":60,
                                 "New York": 396,
                                 "Tokyo": 830}})
 
+
+business = {"Business One Way":{"Paris":120,
+                                    "Madrid":140,
+                                    "Barcelona":110,
+                                    "Munich":130,
+                                    "Rome":115,
+                                    "Milan":160,
+                                    "Lisbon":110,
+                                    "Amsterdam":100,
+                                    "New York": 350,
+                                    "Tokyo": 560},
+
+                "Business Round Trip": {"Paris":350,
+                                    "Madrid":300,
+                                    "Barcelona":320,
+                                    "Munich":290,
+                                    "Rome":380,
+                                    "Milan":300,
+                                    "Lisbon":280,
+                                    "Amsterdam":180,
+                                    "New York":550,
+                                   "Tokyo":990}}
+
+
+
+
 df_business = pd.DataFrame({"Business One Way":{"Paris":120,
                                     "Madrid":140,
                                     "Barcelona":110,
@@ -83,9 +109,16 @@ df_business = pd.DataFrame({"Business One Way":{"Paris":120,
                                     "Lisbon":280,
                                     "Amsterdam":180,
                                     "New York":550,
-                                    "Tokyo":990}})
-print(df_econ)
-print(df_business)
+                                   "Tokyo":990}})
+
+
+
+
+
+# print(df_econ)
+# print(df_business)
+
+
 
 
 """
@@ -112,8 +145,22 @@ class Choose_destination():
         seat_class = input("What class would you like to fly on? ").upper()
         if seat_class == "B":
             print(df_business)
+        elif seat_class == "E":
+            print(df_econ)
+        print("Here is a list of all current flights available at Business Class")
+        print("Please now select what City you would like to travel to and whether you would like a One Way or Round Trip")
+        way_trip = input("Type [OW] for one way, [RT] for round trip:")
+        if way_trip == "OW":
+            way_trip = "Business One Way"
+        elif way_trip == "RT":
+            way_trip == "Business Round Trip"
+        city = input("Please type the city the way it appears in the above table ").capitalize()
+        print("You have chosen {} and the city {}".format(way_trip, city))
+        print("The price per Adult for this journey would be -->"), print(business[way_trip][city])
 
 
+
+# how to access price from a nested dictionary print business[businessoneway]["Paris"]
 
 
 """

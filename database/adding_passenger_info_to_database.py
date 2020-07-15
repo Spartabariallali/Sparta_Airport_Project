@@ -52,13 +52,13 @@ class Adding_passenger_info:
                 # passport/travel document
                 print("\n** Passport")
                 print("** National Identity Card (Only Valid for European Travel)\n")
-                p_travel_document = str(input("please confirm the passenger's travel document: \n"))
+                p_travel_document = str(input("please confirm the passenger's travel document: \n")).lower()
                 if p_travel_document == 'passport':
                     passenger_information.append("passport")
                 else:
                     passenger_information.append("National Identity Card")
                 # travel document numbers
-                p_travel_document_number = int(input("please enter the passenger's travel document number: \n"))
+                p_travel_document_number = int(input("please enter the passenger's 10 digit travel document number: \n"))
                 passenger_information.append(p_travel_document_number)
                 print(passenger_information)
                 # return passenger_information
@@ -76,11 +76,8 @@ class Adding_passenger_info:
                 if start_again == "Y":
                     self.storing_passenger_info()
                 else:
-                    booking = False
-#                 passengers = cursor.execute("SELECT * FROM Passengers")
-#                 for row in passengers:
-#                     print(row)
-#
+                    return None
+
 # #
 # object = Adding_passenger_info()
 # object.storing_passenger_info()

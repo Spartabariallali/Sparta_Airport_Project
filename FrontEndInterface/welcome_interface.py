@@ -1,3 +1,4 @@
+from FrontEndInterface.menu_interface import Menu_interface
 
 class Welcome_interface():
 
@@ -10,4 +11,17 @@ class Welcome_interface():
                          "-> Amend an existing booking [E]\n" + "-> View Terms & Conditions of booking [H]\n" + "-> Count down to booking [A]\n" +\
                             "-> For help type [H]\n"
         print(user_help)
+        passenger_input = input("Please select from the options.")
+        if passenger_input == 't':
+            obj1 = Menu_interface()
+            obj1.create_booking()
+        elif passenger_input == "e":
+            obj1 = Menu_interface()
+            obj1.amend_existing_booking()
+        elif passenger_input == "s":
+            obj1 = Menu_interface()
+            obj1.view_existing_booking()
+        elif passenger_input == "h":
+            pass # Here I am going to read in a picture which contains the terms and conditions for the booking
+
 

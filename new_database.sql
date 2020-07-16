@@ -38,7 +38,7 @@ CREATE TABLE Bookings (
     ,booking_no_of_passengers INT
     ,booking_total_fare INT
     ,PRIMARY KEY (id)
-    ,FOREIGN KEY (id) REFERENCES Passengers (id)
+    -- ,FOREIGN KEY (id) REFERENCES Passengers (id)
 )
 
 

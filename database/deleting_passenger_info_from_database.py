@@ -10,7 +10,7 @@ class Deleting_passenger_info():
     def delete_info(self):
         print("It's a shame you want to cancel your booking with us...\n")
         feedback = input("Please provide us with some information as to why you have chosen to cancel the booking? \n")
-        unique_number = int(input("Finally, please provide us with your PassengerID number that was given to you when you made your booking \n"))
+        unique_number = int(input("Finally, please provide us with your BookingID number that was given to you when you made your booking \n"))
         print("One moment please....")
         time.sleep(2)
         with open("user_feedback.txt", "a+") as file:
@@ -21,10 +21,10 @@ class Deleting_passenger_info():
         # now time to remove this information from the database
         obj1 = Database_OOP()
         cursor = obj1.establish_connection()
-        query = "DELETE FROM Passengers WHERE PassengerID = {}".format(unique_number)
+        query = "DELETE FROM Passengers WHERE booking_id = {}".format(unique_number)
         cursor.execute(query)
         cursor.commit()
-
+        # checking changes
         print("Thank you very much for your feedback, your booking details have been removed from our database "
               "and your money should be with you in 3-5 working days, Bye!")
 

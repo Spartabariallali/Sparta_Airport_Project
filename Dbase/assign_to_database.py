@@ -1,10 +1,12 @@
 import time
-from pl import OpenConnection
+from Dbase.dbconnection import OpenConnection
 class Flights:
     #  This is a simple method which contains two nested dictionaries
     # Within the dictionaries, I made the distinction between long and short haul flights
     # The distinction is essential to my tactic of assigning my list indexes to the keys of the nested dicts
     def flightRoutes(self):
+        # obj = OpenConnection()
+        # cursor = obj.credentials()
 
         fra = {"France": "Paris"}
         esp = {"Spain": "Barcelona"}
@@ -42,37 +44,55 @@ class Flights:
 
                 editor = input("Would you like to change a plane assignment y/n? ").lower()
                 if editor == "y":
-                    current_assignments = input("Here are the current plane assignments:\n\n" +
-                                                "Destinations:    Planes:\n" + "Paris           Plane1\n"
-                                              + "Madrid          Plane2\n" + "Barcelona       Plane3\n" +
-                                                "Munich          Plane4\n" + "Rome            Plane5\n"
-                                                + "Milan           Plane6\n" + "Lisbon          Plane7\n"
-                                                + "Amsterdam       Plane8\n" + "New York        Plane9\n" +
-                                                "Please select the destination you would like to reassign: ")
-                    if current_assignments == f"{current_assignments}":
-                        print(f"You have chosen to amend {current_assignments}")
-                        time.sleep(3)
-                        new_plane = input("Which plane would you like to assign to this flight instead? \n " +
-                                                 "-> Plane3 [3]\n" + " -> Plane4 [4]\n" + " -> Plane5 [5]\n" +
-                                                 " -> Plane6 [6]\n" + " -> Plane7 [7]\n" + " -> Plane8 [8]\n"
-                                                 + " -> Plane9 [9]\n" + " -> Plane10 [10]\n ")
-                        print(f"You have chosen Plane {new_plane}")
-                        confirmation = input("Press [Y] to confirm your selection or [N] to cancel ").lower()
-                        if confirmation == "y":
-                            print(f"Plane{new_plane} has been assigned to this route")
-                        elif confirmation == "n":
-                            print("All changes have been cancelled")
-                    else:
-                     print("No worries, have a nice day")
-                     break
-            elif username != "manager" and password != "pass1":
-                print("Please check that data is correct")
-            elif username != "manager" or password != "pass1":
-                print("Please check that data is correct")
-            exit = False
-            self.flightRoutes()
+                    obj1 = OpenConnection()
+                    obj1.connections()
 
-            quesry
 
-            f1 = Flights()
-            f1.flightRoutes()
+
+
+
+            #         if current_assignments:
+            #             print(f"You have chosen to amend {current_assignments}")
+            #             time.sleep(3)
+            #
+            #             print(f"You have chosen Plane {new_plane}")
+            #             confirmation = input("Press [Y] to confirm your selection or [N] to cancel ").lower()
+            #             if confirmation == "y":
+            #                 print(f"Plane{new_plane} has been assigned to this route")
+            #             elif confirmation == "n":
+            #                 print("All changes have been cancelled")
+            #         else:
+            #          print("No worries, have a nice day")
+            #          break
+            # elif username != "manager" and password != "pass1":
+            #     print("Please check that data is correct")
+            # elif username != "manager" or password != "pass1":
+            #     print("Please check that data is correct")
+            # exit = False
+            # self.flightRoutes()
+            #
+            # query = cursor.execute("SELECT * FROM Assignments")
+            # rows = query.fetchone()
+            # print(rows)
+
+
+f1 = Flights()
+f1.flightRoutes()
+
+#
+# ("Here are the current plane assignments:\n\n" +
+#                                                 "Destinations:    Planes:\n" + "Paris           Plane1\n"
+#                                               + "Madrid          Plane2\n" + "Barcelona       Plane3\n" +
+#                                                 "Munich          Plane4\n" + "Rome            Plane5\n"
+#                                                 + "Milan           Plane6\n" + "Lisbon          Plane7\n"
+#                                                 + "Amsterdam       Plane8\n" + "New York        Plane9\n" +
+                                                # "Please select the destination you would like to reassign: ")
+
+
+
+
+
+
+
+
+

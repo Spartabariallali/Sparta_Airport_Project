@@ -2,21 +2,19 @@
 
 :airplane: :airplane: :airplane: :airplane:
 
-Abdelbari
-Saheed
-Georgina
-Andrew
+[Abdelbari](https://github.com/Spartabariallali)  
+[Saheed](https://github.com/sahlamina)  
+[Georgina](https://github.com/gia-bartlett)  
+[Andrew](https://github.com/aosborne17)
 
 It would make sense to first create a database in which we would store various information, that way we can then
 run code that can add to and take from that database.
 
 
-## Airport
- - How many runways would the airport have
- - How many destinations would it be possible to travel to from our airport
- - Where is our airport located
- - What are the prices for the flights
- - How can we allow customers to sell their tickets
+## Airport Project Epic:  
+Airport Assistant interface for managing flight bookings and flight manifests.  
+
+## User Stories:  
  
 
 ## Passenger

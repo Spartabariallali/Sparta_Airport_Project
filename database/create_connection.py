@@ -1,12 +1,12 @@
 import pyodbc
-import secret_file
+import SecretWeapons.secret_file
 
 
 class Database_OOP:
-    server = secret_file.server
-    database = secret_file.database
-    username = secret_file.username
-    password = secret_file.password
+    server = SecretWeapons.secret_file.server
+    database = SecretWeapons.secret_file.database
+    username = SecretWeapons.secret_file.username
+    password = SecretWeapons.secret_file.password
 
     # this method is specifically for establishing a connection
     def establish_connection(self):
@@ -17,13 +17,11 @@ class Database_OOP:
             with pyodbc.connect(connections, timeout=5) as connection:
                 print("Connection Successful")
         except (ConnectionError, pyodbc.OperationalError, pyodbc.DatabaseError):
-            print("Connection Timed Out")
+            print("Connection Timed Out, retrying...")
+            self.establish_connection()
         except pyodbc.InterfaceError:
-            print("Invalid connection to DB interface")
+            print("Invalid connection to DB interface, retrying...")
+            self.establish_connection()
         else:
             cursor = connection.cursor()
             return cursor
-
-
-# obj = Database_OOP()
-# obj.establish_connection()

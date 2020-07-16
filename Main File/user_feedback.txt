@@ -1,0 +1,5 @@
+
+PassengerID: 2 ---> I do not feel safe travelling during this pandemic!
+PassengerID: 2 ---> Not feeling it anymore
+PassengerID: 2 ---> Not feeling it no more
+PassengerID: 4 ---> Not up for it

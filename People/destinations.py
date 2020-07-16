@@ -38,5 +38,5 @@ Tokyo = "CONTYO3"
 
 
 
-obj1 = Destinations()
-obj1.routes()
+# obj1 = Destinations()
+# obj1.routes()

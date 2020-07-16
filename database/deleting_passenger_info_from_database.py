@@ -9,12 +9,15 @@ from create_connection import Database_OOP
 class Deleting_passenger_info():
     def delete_info(self):
         print("It's a shame you want to cancel your booking with us...\n")
-        feedback = input("Please provide us with some information as to why you have chosen to cancel the booking? \n\n")
+        feedback = input("Please provide us with some information as to why you have chosen to cancel the booking? \n")
         unique_number = int(input("Finally, please provide us with your PassengerID number that was given to you when you made your booking \n"))
         print("One moment please....")
         time.sleep(2)
         with open("user_feedback.txt", "a+") as file:
-            file.write(feedback)
+            text_input = "\nPassengerID: {} ---> {}".format(unique_number, feedback)
+            file.write(text_input)
+            # print("\n", "PassengerID: {}".format(unique_number), "--->", file.write(feedback))
+
         # now time to remove this information from the database
         obj1 = Database_OOP()
         cursor = obj1.establish_connection()
@@ -28,5 +31,5 @@ class Deleting_passenger_info():
 
 
 
-# obj = Deleting_passenger_info()
+# obj = Deleting_passenger_info()git
 # obj.delete_info()

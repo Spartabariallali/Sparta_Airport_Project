@@ -104,7 +104,7 @@ class Adding_passenger_info:
             values2 = random_booking_id
             cursor.execute(query1, values2)
             cursor.commit()
-
+            # executing cursor
             """
             UPDATE Customers
 SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'

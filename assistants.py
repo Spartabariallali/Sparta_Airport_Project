@@ -1,5 +1,6 @@
 from people import *
 # After importing the attributes from people, I created an assistant who is able to log in and will be able to make bookings once they are logged in
+
 class Assistant(Staff):
     def login(self):
         username = input("Please enter your username: ")

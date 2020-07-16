@@ -1,5 +1,6 @@
 import time
 from people import *
+
 class Flights:
     #  This is a simple method which contains two nested dictionaries
     # Within the dictionaries, I made the distinction between long and short haul flights
@@ -25,40 +26,46 @@ class Flights:
         new_short = ""
         new_long = ""
         exit = True
-
+        # I used a while loop to restart the process after the assignment has been changed
         while exit:
             editor = input("Would you like to change a plane assignment y/n? ").lower()
             if editor == "y":
-                change_assignment = input("Press [S] for short haul and [L] for long haul: ")
+                change_assignment = input("Press [S] for short haul and [L] for long haul: ").lower()
                 if change_assignment == "s":
-                    print(f"{class1[short]} is currently assigned to this route, would you like to change it y/n? ")
-                    change_short = input("Which plane would you like assign to this route?\n " + "-> Plane3 [3]\n" +
+                    current_short = input(f"{class1[short]} is currently assigned to this route, would you like to change it y/n? ").lower()
+                    if current_short == "y":
+                        change_short = input("Which plane would you like assign to this route?\n " + "-> Plane3 [3]\n" +
                                          " -> Plane4 [4]\n" + " -> Plane5 [5]\n" + " -> Plane6 [6]\n ")
-                    new_short = change_short
-                    print(f"You have chosen to assign Plane{new_short}  to this route")
-                    time.sleep(3)
-                    confirmation = input("Press [Y] to confirm your selection or [N] to cancel ")
+                        new_short = change_short
+                        print(f"You have chosen to assign Plane{new_short}  to this route")
+                        time.sleep(3)
+                        confirmation = input("Press [Y] to confirm your selection or [N] to cancel ").lower()
                     if confirmation == "y":
                         print(f"Plane{new_short} has been assigned to this route")
                     elif confirmation == "n":
                         print("All changes have been cancelled")
-                        exit = False # maybe i can restart the loop from here
+                        exit = False
+                    elif current_short == "n":
+                        print("No changes have been made.")
+                        self.flightRoutes() # find a way to restart from here
 
 
                 elif change_assignment == "l":
-
-                    if change_assignment == "l":
-                        print(f"{class2[long]} is currently assigned to this route, would you like to change it y/n? ")
-                        change_long = input("Which plane would you like assign to this route?\n " + "-> Plane3 [3]\n" +
+                        current_long = input(f"{class2[long]} is currently assigned to this route, would you like to change it y/n? ").lower()
+                        if current_long == "y":
+                            change_long = input("Which plane would you like assign to this route?\n " + "-> Plane3 [3]\n" +
                                              " -> Plane4 [4]\n" + " -> Plane5 [5]\n" + " -> Plane6 [6]\n ")
-                        new_long = change_long
-                        print(f"You have chosen to assign Plane{new_long}  to this route")
-                        time.sleep(3)
-                        confirmation = input("Press [Y] to confirm your selection or [N] to cancel ")
+
+                            new_long = change_long
+                            print(f"You have chosen to assign Plane{new_long}  to this route")
+                            time.sleep(3)
+                        confirmation = input("Press [Y] to confirm your selection or [N] to cancel ").lower()
                         if confirmation == "y":
                             print(f"Plane{new_long} has been assigned to this route")
                         elif confirmation == "n":
                             print("All changes have been cancelled")
+                        elif current_long == "n":
+                            print("No changes have been made.")
                             exit = False
 
             else:

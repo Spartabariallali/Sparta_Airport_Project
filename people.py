@@ -12,6 +12,9 @@ class People:
 class Passenger(People):
     def details(self):
         print(self.f_name + self.l_name + self.age + self.gender + self.id_number + self.passport_number)
+class Infant(People):
+        def details(self):
+            print(self.f_name + self.l_name + self.age + self.gender + self.id_number + self.passport_number)
 
 class Staff(People):
     def s_details(self):

@@ -25,7 +25,3 @@ class Database_OOP:
         else:
             cursor = connection.cursor()
             return cursor
-
-
-# obj = Database_OOP()
-# obj.establish_connection()

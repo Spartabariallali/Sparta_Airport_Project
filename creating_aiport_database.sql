@@ -28,35 +28,51 @@ CREATE TABLE Staff (
     ,PRIMARY KEY (StaffID)
 )
 
+DROP TABLE Flights
+
 CREATE TABLE Flights(
      FlightID INTEGER NOT NULL IDENTITY(1,1)
     ,flight_destination VARCHAR(240)
-    ,flight_date VARCHAR(240)
     ,PRIMARY KEY (FlightID)
-    ,AircraftID INT NOT NULL
+)
+
+SELECT * FROM Flights
+WHERE flight_destination IN ('Tokyo')
+
+
+
+
+    -- ,AircraftID INT NOT NULL
     -- ,Foreign KEY(AircraftID) REFERENCES Aircraft(AircraftID)
-    -- ,FOREIGN KEY (StaffID) REFERENCES Staff(StaffID)
-)
+    -- ,FOREIGN KEY (StaffID) REFERENCES Staff(StaffID) 
+     -- ,flight_date VARCHAR(240)
+
+SP_HELP [Flights]
 
 
-CREATE TABLE Aircraft(
-    AircraftID INTEGER NOT NULL IDENTITY(1,1)
-    ,aircraft_type VARCHAR(240)
-    PRIMARY KEY (AircraftID)
-)
+-- DROP TABLE Aircraft
+-- CREATE TABLE Aircraft(
+--     AircraftID INTEGER NOT NULL IDENTITY(1,1)
+--     ,aircraft_type VARCHAR(240)
+--     PRIMARY KEY (AircraftID)
+-- )
 
+DROP TABLE Bookings
 CREATE TABLE Bookings (
     BookingID INTEGER NOT NULL IDENTITY(1,1)
-    ,booking_date DATE
+    ,booking_class VARCHAR (240)
+    ,booking_way_trip VARCHAR(240)
+    ,booking_destination VARCHAR(240)
+    ,booking_price_per_passenger INT
+    ,booking_no_of_passengers INT
     ,booking_total_fare FLOAT
-    ,destination VARCHAR(240)
-    ,flight_date VARCHAR(240)
-    ,terminal VARCHAR(240)
-    ,number_of_passengers INT
+    -- ,booking_date DATE
+    -- ,flight_date VARCHAR(240)
+    -- ,terminal VARCHAR(240)
     ,PRIMARY KEY (BookingID)
 )
 
-
+SELECT * FROM Bookings
 
 SELECT * FROM Passengers
 

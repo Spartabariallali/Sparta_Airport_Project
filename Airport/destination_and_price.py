@@ -1,6 +1,6 @@
 import pandas as pd
 import time
-
+from database.create_connection import Database_OOP
 """
 If they ask to see economy prices, we will input a time.sleep(3)
 """
@@ -136,6 +136,8 @@ import translation module, based off of the country they pick we can add some tr
 """
 
 
+
+
 class Choose_destination():
     def price_checker(self):
         booking_info = []
@@ -174,7 +176,7 @@ class Choose_destination():
             booking_info.append(seat_class)
             print("Here is a list of all current flights available at Economy Class\n")
             print("Please now select what City you would like to travel to and whether you would like a One Way or Round Trip\n")
-            way_trip = input("Type [OW] for one way, [RT] for round trip: \n")
+            way_trip = input("Type [OW] for one way, [RT] for round trip: \n").upper()
             if way_trip == "OW":
                 way_trip = "econ_one_way"
                 booking_info.append(way_trip)
@@ -182,17 +184,49 @@ class Choose_destination():
                 way_trip = "econ_return"
                 booking_info.append(way_trip)
             city = input("Please type the city the way it appears in the above table \n")
-            booking_info.append(way_trip)
+            booking_info.append(city)
             print("You have chosen the {} ticket and the city is {}\n".format(way_trip, city))
             print("The price per Adult for this journey would be -->"), print(economy[way_trip][city])
+            booking_info.append(economy[way_trip][city])
             passengers = int(input("How many adults would you be booking for today?\n "))
+            booking_info.append(passengers)
             print("Give us a moment, we're just calculating your price...\n")
             time.sleep(3)
             ticket_price = economy[way_trip][city]
             total_price = (ticket_price * passengers)
             proceed = input("The total booking price would be {}. Are you happy to proceed? Please type yes or no\n".format(total_price)).upper()
+            print("Checking Variable -->", proceed)
             if proceed == "YES":
                 booking_info.append(total_price)
+                print(booking_info)
+                time.sleep(10)
+                print("Great! Adding the flight details to our database, we will now need some personal information")
+                # run the query here for the flights table
+                object1 = Database_OOP()
+                cursor1 = object1.establish_connection()
+                query2 = """ INSERT INTO [Flights](flight_destination)
+                            VALUES
+                            (?) """
+                values = (booking_info[2])
+                cursor1.execute(query2, values)
+                cursor1.commit()
+                # cursor1.close()
+                # object2 = Database_OOP()
+                # cursor2 = object2.establish_connection()
+                # Now are running a query for the booking table
+                query3 = """ INSERT INTO [Bookings](booking_class, booking_way_trip, booking_destination,
+                                                    booking_price_per_passenger, booking_no_of_passengers,
+                                                    booking_total_fare)
+                            VALUES
+                            (?, ?, ?, ?, ?, ?)"""
+                print(booking_info)
+                values = (booking_info[0], booking_info[1], booking_info[2], booking_info[3], booking_info[4], booking_info[5])
+                cursor1.execute(query3, values)
+                cursor1.commit()
+
+
+                print("Changing Interface, One moment...")
+                time.sleep(2)
             else:
                 print("Ohh that's a shame!, we will now take you back to the main menu...")
                 return False

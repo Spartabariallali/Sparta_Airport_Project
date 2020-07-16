@@ -17,9 +17,11 @@ class Database_OOP:
             with pyodbc.connect(connections, timeout=5) as connection:
                 print("Connection Successful")
         except (ConnectionError, pyodbc.OperationalError, pyodbc.DatabaseError):
-            print("Connection Timed Out")
+            print("Connection Timed Out, retrying...")
+            self.establish_connection()
         except pyodbc.InterfaceError:
-            print("Invalid connection to DB interface")
+            print("Invalid connection to DB interface, retrying...")
+            self.establish_connection()
         else:
             cursor = connection.cursor()
             return cursor

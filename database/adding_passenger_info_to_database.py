@@ -1,5 +1,6 @@
 import time
 from create_connection import Database_OOP
+import random
 # from menu_interface import Menu_interface
 # from welcome_interface import Welcome_interface
 
@@ -13,6 +14,11 @@ In this class we attempt to add the information inputted from the airport assist
 that holds passenger info
 """
 
+"""
+
+"""
+
+
 class Adding_passenger_info:
         def storing_passenger_info(self):
             ob1 = Database_OOP()
@@ -20,8 +26,10 @@ class Adding_passenger_info:
             passenger_information = []
             print("one moment please...")
             time.sleep(1)
-            booking = True
-            while booking:
+            loops = int(input("Please enter the number of Passengers you have chosen to book with: "))
+            i = 0
+            for n in range(loops):
+            # while i < loops:
                 time.sleep(1)
                 print("\nPlease follow the prompts and ensure the information is carefully inputted.\n")
                 p_title = input(
@@ -61,10 +69,11 @@ class Adding_passenger_info:
                 p_travel_document_number = int(input("please enter the passenger's 10 digit travel document number: \n"))
                 passenger_information.append(p_travel_document_number)
                 print(passenger_information)
+                ###
                 # return passenger_information
                 # all_passengers.append(passenger_information)
-                query = """ INSERT INTO [Passengers](title, first_name, last_name, date_of_birth, nationality,
-                                                       travel_doc_number)
+                query = """ INSERT INTO [Passengers](title, first_name, last_name, birthdate, nationality,
+                                                       travel_doc)
                                                        VALUES
                                                        (?, ?, ?, ?, ?, ?) """
 
@@ -72,12 +81,32 @@ class Adding_passenger_info:
 
                 cursor.execute(query, values)
                 cursor.commit()
-                start_again = input("Type [Yes] if you would like to enter additional info for another passenger: ").upper()
-                if start_again == "YES":
-                    self.storing_passenger_info()
-                else:
-                    return
 
-# #
-# object = Adding_passenger_info()
-# object.storing_passenger_info()
+                passenger_information = []
+                if n == 2:
+                    break
+
+                # start_again = input("Type [Yes] if you would like to enter additional info for another passenger: ").upper()
+                #
+                # if start_again == "YES":
+                #     self.storing_passenger_info()
+                # else:
+                #     return
+            ## Here we run the query to give a booking_id
+
+            random_booking_id = random.randint(161, 500)
+            print(random_booking_id)
+            print("Your booking ID is: {}".format(random_booking_id))
+            query1 = """ UPDATE [Passengers]
+                        SET booking_id = (?)
+                        WHERE booking_id is NULL 
+                            """
+            values2 = random_booking_id
+            cursor.execute(query1, values2)
+            cursor.commit()
+
+            """
+            UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+WHERE CustomerID = 1;
+            """

@@ -72,7 +72,7 @@ class Flights:
             exit = False
             self.flightRoutes()
 
-            quesry
+            # quesry
 
             f1 = Flights()
             f1.flightRoutes()

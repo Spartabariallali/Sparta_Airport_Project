@@ -13,3 +13,20 @@ def run_it_all():
 
 
 run_it_all()
+
+"""
+Thursday evening
+Completed Tc and Cs
+Fully functional booking database that can link to the Passenger database
+Halfway completion of Password encryption
+Aircraft Database created
+Queries which allow the reassignment of planes to a given destination
+"""
+
+"""
+Friday Morning TODO:
+Implement Password interface into Airplane assignment
+Implement Password encryption
+Create a connectivity between the number of passengers assigned to a flight and the handling of tickets
+Begin allocating Presentation Slides/Code executions
+"""

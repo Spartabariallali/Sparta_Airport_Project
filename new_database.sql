@@ -41,9 +41,43 @@ CREATE TABLE Bookings (
     -- ,FOREIGN KEY (id) REFERENCES Passengers (id)
 )
 
+SELECT *
+FROM Bookings, Passengers
+WHERE booking_destination = 'Munich'
+
+CREATE TABLE Aircraft(
+ AircraftID VARCHAR(255)
+ ,destination VARCHAR(255)
+ ,airline VARCHAR(50)
+ ,capacity INT
+ ,num_Rows INT
+ ,num_Seats INT
+ ,PRIMARY KEY (AircraftID)
+);
+ 
+INSERT INTO Aircraft(AircraftID, destination, airline, capacity, num_Rows, num_Seats)
+VALUES 
+('AA101', 'Amsterdam', 'AgileAir', 113, 18, 6)
+,('AA102', 'Barcelona', 'AgileAir', 113, 18, 6)
+,('AA103', 'Lisbon', 'AgileAir', 113, 18, 6)
+,('AA104', 'Madrid', 'AgileAir', 113, 18, 6)
+,('AA105', 'Milan','AgileAir', 113, 18, 6)
+,('AA106', 'Munich','AgileAir', 113, 18, 6)
+,('AA107', 'New York', 'AgileAir', 113, 18, 6)
+,('AA108', 'Paris','AgileAir', 113, 18, 6)
+,('AA109', 'Rome', 'AgileAir', 263, 25, 10)
+,('AA110', 'Tokyo', 'AgileAir', 263, 25, 10);
+
+SELECT * FROM Aircraft
+DROP TABLE Aircraft
 
 
-DROP TABLE Bookings
+
+
+
+
+
+-- DROP TABLE Bookings
 SELECT * FROM Bookings
 
 SP_HELP Bookings
@@ -67,7 +101,10 @@ UPDATE [Passengers]
 SET booking_id = 50 
 WHERE booking_id is NULL
 
-    SELECT * FROM Passengers
+SELECT * FROM Aircraft
+WHERE destination = 'Munich'
+
+SELECT * FROM Passengers
 
 INSERT INTO [Passengers](title, first_name, last_name, birthdate, nationality, travel_doc, booking_id)
 VALUES

@@ -27,7 +27,6 @@ class Adding_passenger_info:
             print("one moment please...")
             time.sleep(1)
             loops = int(input("Please enter the number of Passengers you have chosen to book with: "))
-            i = 0
             for n in range(loops):
             # while i < loops:
                 time.sleep(1)
@@ -83,7 +82,7 @@ class Adding_passenger_info:
                 cursor.commit()
 
                 passenger_information = []
-                if n == 2:
+                if n == loops:
                     break
 
                 # start_again = input("Type [Yes] if you would like to enter additional info for another passenger: ").upper()

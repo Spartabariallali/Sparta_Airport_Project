@@ -23,5 +23,6 @@ Airport Assistant interface for managing flight bookings and flight manifests.
 - Generate a flight list with name and passport number to check identity on flight  
 
 ## Instructions:
-Use Main File to run  
+Use Main File to run the program from main.py  
+This will call the menu interface
 

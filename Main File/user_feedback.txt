@@ -1,7 +1,7 @@
 
 PassengerID: 2 ---> I do not feel safe travelling during this pandemic!
-PassengerID: 2 ---> Not feeling it anymore
-PassengerID: 2 ---> Not feeling it no more
-PassengerID: 4 ---> Not up for it
+PassengerID: 2 ---> N/A
+PassengerID: 2 ---> Not enough money!
+PassengerID: 4 ---> Safety Issues!
 PassengerID: 2 ---> I wanna stay at home!
-PassengerID: 352 ---> Not feeling it
+PassengerID: 352 ---> No Reason...

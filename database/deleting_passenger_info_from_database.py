@@ -30,6 +30,3 @@ class Deleting_passenger_info():
 
 
 
-
-# obj = Deleting_passenger_info()git
-# obj.delete_info()

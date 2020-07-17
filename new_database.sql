@@ -70,6 +70,13 @@ CREATE TABLE Aircraft(
  ,num_Seats INT
  ,PRIMARY KEY (AircraftID)
 );
+
+SELECT * FROM Aircraft
+
+UPDATE Aircraft SET
+AircraftID = 'AA110'
+WHERE destination IN ('Tokyo')
+
  
 INSERT INTO Aircraft(AircraftID, destination, airline, capacity, num_Rows, num_Seats)
 VALUES 

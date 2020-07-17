@@ -1,6 +1,7 @@
 from menu_interface import Menu_interface
 from Airport.terms_and_conditions import View_terms_and_conditions
 from database.check_passenger_database import Check_all_passengers
+from Dbase.assign_to_database import Flights
 class Welcome_interface():
 
 
@@ -12,7 +13,7 @@ class Welcome_interface():
         print("Hello {}, what service does the passenger require: \n".format(assistant_first_name))
         user_help = "\nInstructions:\n\n" + "-> Create a new booking [C]\n" + "-> view an existing booking [E]\n" +\
                          "-> Amend an existing booking [A]\n" + "-> View Terms & Conditions of booking [T]\n" + "-> Check Passenger Database [P]\n" +\
-                            "-> For help type [H]\n"
+                            "-> For Mangerial Options[M]\n"
         print(user_help)
         passenger_input = input("Please select from the options: ").upper()
         if passenger_input == 'C':
@@ -31,8 +32,10 @@ class Welcome_interface():
             obj1 = View_terms_and_conditions()  # Here I am going to read in a picture which contains the terms and conditions for the booking
             obj1.run_t_and_c()
             self.user_interaction_passengers()
-        elif passenger_input == "H":
-            pass
+        elif passenger_input == "M":   # Here I am going to allow the manager to sign in and then change the flights
+            ob1 = Flights()
+            ob1.flightRoutes()
+            self.user_interaction_passengers()
         elif passenger_input == "P":
             obj1 = Check_all_passengers()
             obj1.all_passsengers()

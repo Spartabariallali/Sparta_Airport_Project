@@ -1,8 +1,7 @@
 import time
 from create_connection import Database_OOP
 import random
-# from menu_interface import Menu_interface
-# from welcome_interface import Welcome_interface
+import csv
 
 
 """
@@ -75,6 +74,11 @@ class Adding_passenger_info:
                                                        travel_doc)
                                                        VALUES
                                                        (?, ?, ?, ?, ?, ?) """
+
+
+                with open('passenger_information.csv', mode='w') as passenger_file:
+                    passenger_write = csv.writer(passenger_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                    passenger_write.writerow(passenger_information)
 
                 values = (passenger_information[0], passenger_information[1], passenger_information[2], passenger_information[3], passenger_information[4], passenger_information[5])
 

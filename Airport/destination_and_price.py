@@ -1,24 +1,10 @@
 import pandas as pd
 import time
 from database.create_connection import Database_OOP
-"""
-If they ask to see economy prices, we will input a time.sleep(3)
-"""
 
-"""
-It makes sense to...
-"""
-
-"""
-Ask for their class at the end and if they want to travel business, then we increase the default price by 20%
-
-"""
+import csv
 
 
-"""
-I should have something where based on their input, it returns the price of the flight
-rather than me manually getting it from the dict
-"""
 economy = { "econ_one_way": {"Paris":60,
                                 "Madrid":75,
                                 "Barcelona":78,
@@ -204,16 +190,19 @@ class Choose_destination():
                 # run the query here for the flights table
                 object1 = Database_OOP()
                 cursor1 = object1.establish_connection()
-                query2 = """ INSERT INTO [Flights](flight_destination)
-                            VALUES
-                            (?) """
-                values = (booking_info[2])
-                cursor1.execute(query2, values)
-                cursor1.commit()
+                # query2 = """ INSERT INTO [Flights](flight_destination)
+                #             VALUES
+                #             (?) """
+                # values = (booking_info[2])
+                # cursor1.execute(query2, values)
+                # cursor1.commit()
                 # cursor1.close()
                 # object2 = Database_OOP()
                 # cursor2 = object2.establish_connection()
                 # Now are running a query for the booking table
+                with open('booking_information.csv', mode='w') as booking_file:
+                    booking_write = csv.writer(booking_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                    booking_write.writerow(booking_info)
                 query3 = """ INSERT INTO [Bookings](booking_class, booking_way_trip, booking_destination,
                                                     booking_price_per_passenger, booking_no_of_passengers,
                                                     booking_total_fare)

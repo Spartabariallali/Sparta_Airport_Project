@@ -1,32 +1,53 @@
 import hashlib, binascii, os
+from database.create_connection import Database_OOP
 
-def user_check(testing):
-    new_user_check = input("If you already have a username please press enter, otherwise enter 1: ")
-    if new_user_check == "":
-        existing_user = input("Please enter your username: ")
-        # get username and hash password from SQL
-        returned_password = testing
-        if True:
-            # username returned testing password
-            password_attempts = 3
-            while password_attempts >= 0:
-                user_password = input("Please enter your password: ")
-                if verify_password(returned_password, user_password):
-                    print("Welcome")
-                    return "Validated"
-                else:
-                    if password_attempts == 0:
-                        print("Account locked.  Please contact your system administrator")
-                        return "Password failed"
+obj = Database_OOP()
+obj.establish_connection()
+obj1.Password()
+obj.user_check()
+
+
+class Password:
+
+
+    def user_check(testing):
+
+        new_user_check = input("If you already have a username please press enter, otherwise enter 1: ")
+        if new_user_check == "":
+            existing_user = input("Please enter your username: ")
+            # get username and hash password from SQL
+            obj.establish_connection()
+            print("reading data")
+            connections = obj.establish_connection()
+            cursor.connections.cursor()
+            # create a variable to query the user and password table 
+            query = ('SELECT Username FROM Users')
+            rows = cursor.fetchall()
+            cursor.execute(query)
+            for row in rows:
+                print(row)
+            returned_password = testing
+            if True:
+                # username returned testing password
+                password_attempts = 3
+                while password_attempts >= 0:
+                    user_password = input("Please enter your password: ")
+                    if verify_password(returned_password, user_password):
+                        print("Welcome")
+                        return "Validated"
                     else:
-                        print(f"Password incorrect. {password_attempts} attempts remaining. Please try again")
-                        password_attempts -= 1
+                        if password_attempts == 0:
+                            print("Account locked.  Please contact your system administrator")
+                            return "Password failed"
+                        else:
+                            print(f"Password incorrect. {password_attempts} attempts remaining. Please try again")
+                            password_attempts -= 1
+            else:
+                result = create_user()
+                return result
         else:
             result = create_user()
             return result
-    else:
-        result = create_user()
-        return result
 
 def create_user():
     new_user = input("Please enter your new username: ")
@@ -59,5 +80,7 @@ def verify_password(stored_password, provided_password):
     return pwdhash == stored_password
 
 
-testing = hash_password("password1")
-user_check(testing)
+# testing = hash_password("password1")
+# user_check(testing)
+
+

@@ -1,4 +1,5 @@
-# Shared Repository for those in Group 3 working on the airlines Project
+# Shared Repository for those in Group 3 working on the Airport Project  
+## Project following completion of SQL and Python weeks of the DevOps Stream at [Sparta Global](https://www.spartaglobal.com/) 
 
 :airplane: :airplane: :airplane: :airplane:
 
@@ -15,9 +16,15 @@ run code that can add to and take from that database.
 Airport Assistant interface for managing flight bookings and flight manifests.  
 
 ## User Stories:  
- 
+- Create a passengers list with name and passport number to add to flight  
+- Create flight trip with specific destination  
+- Assign and change a plane to a flight trip using a password  
+- Sell tickets to passengers and add them to flight trip  
+- Generate a flight list with name and passport number to check identity on flight  
 
-## Passenger
+## Contents:
+
+### Passenger
 
 - How do we plan to make sure the data is persistent, when a passenger buys a ticket
 we must be able to store their data
@@ -34,23 +41,9 @@ we must be able to store their data
 - If for an unfortunate reason our plane crashed, how would we make sure we are still able to fly other passengers
 - What is our plane model, what is it's capacity
 
-## User Stories
-- I want to be able to create a passenger list with name and passport number, so that I can add them to flight
-- As an airport assistant I want to be able to create flight trip with specific destination
-- I want to be able to assign and or change my plane to my flight trip, input my password so I can handle the problem
-- I want to be able to add passengers to flight trip so I can sell tickets to them
-- I want to be able to generate a flight attendees list report that lists of passengers name and passports, so that I can check their identity document
 
 
 ## Database Connectivity
-- create_connection file in which we will be able to create persistant data
+- create_connection file in which we will be able to create persistent data
 - Being able to efficiently add and remove to the database on demand
 - Being able to link the data stored in table through the usage of primary and foreign keys
--
--
-
-### Logical Ordering of Events
-
-- We want to be able to first ask them where they want to travel to
-- Then we will ask them for their personal details
-- Then we will create a booking card and booking id for them

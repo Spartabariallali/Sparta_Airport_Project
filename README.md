@@ -22,28 +22,6 @@ Airport Assistant interface for managing flight bookings and flight manifests.
 - Sell tickets to passengers and add them to flight trip  
 - Generate a flight list with name and passport number to check identity on flight  
 
-## Contents:
+## Instructions:
+Use Main File to run  
 
-### Passenger
-
-- How do we plan to make sure the data is persistent, when a passenger buys a ticket
-we must be able to store their data
-
-- We could use SQL to create our own database
-- This database could contain tables that represent the info gathered from the user
-- We should create a relational database
-- The use of primary and foreign keys would allow us to retrieve info from different tables
-- How much luggage are they able to take with them?
-
-## Aeroplane
-
-- How would we ensure the aeroplane has enough fuel to make a journey
-- If for an unfortunate reason our plane crashed, how would we make sure we are still able to fly other passengers
-- What is our plane model, what is it's capacity
-
-
-
-## Database Connectivity
-- create_connection file in which we will be able to create persistent data
-- Being able to efficiently add and remove to the database on demand
-- Being able to link the data stored in table through the usage of primary and foreign keys

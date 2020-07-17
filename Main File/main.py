@@ -7,9 +7,9 @@ Potentially create an exception to stop the red errors breaking the code
 """
 
 
-def run_it_all():
+def run_file():
     obj1 = Welcome_interface()
     obj1.user_interaction_passengers()
 
 
-run_it_all()
+run_file()

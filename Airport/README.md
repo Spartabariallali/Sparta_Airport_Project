@@ -1,6 +1,6 @@
 ## AIRPORT README
 
-#### :  
+#### T&C:  
 T&C can be printed to show AgileAirline's T&Cs
 
 ```python
@@ -22,10 +22,14 @@ class Choose_destination():
         time.sleep(3)
         print("---> Business [B]\n", "---> Economy [E]\n")
 ```
-#### Removing Passengers:  
-After passengers have been added they can also be removed from the database (if they cancel or miss their flight)  
-Passenger must provide PassengerID number (created when being added to passenger list) in order to be removed from the system.  
-User feedback placed into txt file for reason behind cancellation - any string can be added here.  
-  
+#### Checking Passengers:  
+Checking passengers are on the flight 
+ 
 ```python
+class Checking_passengers:
+    def check_passengers(self):
+        object1 = Database_OOP()
+        cursor = object1.establish_connection()
+        check_seats_on_flight = input("What destination are you flying to? ")
+        query = "SELECT * FROM Flights WHERE flight_destination == {}".format(check_seats_on_flight)
 ```

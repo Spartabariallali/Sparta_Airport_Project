@@ -24,14 +24,12 @@ class Menu_interface():
 
 
     def amend_existing_booking(self):
-        user_help = "\nInstructions:\n\n" + "-> Change Booking time [T]\n" + "-> Cancel booking [C]\n" + "-> Go back [B]\n"
+        user_help = "\nInstructions:\n\n" + "-> Cancel booking [C]\n" + "-> Go back [B]\n"
         print(user_help)
         booking_change = input("What part of your booking would you like to amend? ").upper()
         if booking_change == "C":
             object1 = Deleting_passenger_info()
             object1.delete_info()
-        elif booking_change == "T":
-            pass # I will need to make some sort of class that can change booking times and have the times of flights
         elif booking_change == "B":
             return
             # obj1 = Welcome_interface()

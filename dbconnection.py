@@ -1,5 +1,6 @@
 import pyodbc
 import pandas as pd
+import pandas.io.sql
 
 # server = 'databases.spartaglobal.academy'
 # database = 'Northwind'
@@ -17,7 +18,7 @@ class ConnectingToDataBase:
         password = 'Passw0rd2018'
         connection_string = ('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+password)
         connection_key = pyodbc.connect(connection_string, autocommit=True)
-        print("connected to the database")
+        print("connected {}".format(database))
         return connection_key
 
 
@@ -49,7 +50,7 @@ class ConnectingToDataBase:
 
         print(df.head(len(product_id)))
 
-    def create_product_data(self):
+    # def create_product_data(self):
 
         print("creating data")
         connection_string = obj.open_database()
@@ -71,21 +72,42 @@ class ConnectingToDataBase:
         print("done")
 
     def read_passenger_data(self):
+        print("reading data")
         connection_string = obj.open_database()
         cursor = connection_string.cursor()
-        query = ("SELECT * FROM Passengers")
-        cursor.execute(query)
+        print("about to perform query\n")
+        cursor.execute('SELECT * FROM Passengers')
         rows = cursor.fetchall()
+        for row in rows:
+           print(row)
 
+    def read_passenger_data_one(self):
+        connection_string = obj.open_database()
+        df = pandas.io.sql.read_sql('SELECT * FROM Passengers', connection_string)
 
+    
+    def view_bookings(self):
+        print("reading data")
+        connection_string = obj.open_database()
+        cursor = connection_string.cursor()
+        print("about to perform query")
+        cursor.execute('SELECT * FROM Bookings')
+        rows = cursor.fetchall()
+        for row in rows:
+            print(row)
 
+        
+
+    
 
 
 
 
 obj = ConnectingToDataBase()
+# obj.read_passenger_data_one()
 obj.open_database()
 obj.read_passenger_data()
+# obj.view_bookings
 # obj.read_product_data()
 
 # obj.create_product_data

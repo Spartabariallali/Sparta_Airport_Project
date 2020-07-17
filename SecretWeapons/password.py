@@ -60,4 +60,8 @@ def verify_password(stored_password, provided_password):
 
 
 testing = hash_password("password1")
-user_check(testing)
+testing2 = hash_password("paswordpasswordpassword")
+# user_check(testing)
+# user_check(testing2)
+print(len(testing2))
+print(len(testing))

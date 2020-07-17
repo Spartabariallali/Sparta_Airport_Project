@@ -1,8 +1,9 @@
 import hashlib, binascii, os
+import database.create_connection
 
 def user_check(testing):
     new_user_check = input("If you already have a username please press enter, otherwise enter 1: ")
-    if new_user_check == "":
+    if new_user_check == "":   # press enter if you have an empty string
         existing_user = input("Please enter your username: ")
         # get username and hash password from SQL
         returned_password = testing

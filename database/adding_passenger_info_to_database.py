@@ -104,8 +104,3 @@ class Adding_passenger_info:
             cursor.execute(query1, values2)
             cursor.commit()
             # executing cursor
-            """
-            UPDATE Customers
-SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
-WHERE CustomerID = 1;
-            """

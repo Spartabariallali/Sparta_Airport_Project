@@ -35,12 +35,12 @@ CREATE TABLE Users(
     ,PRIMARY KEY (StaffID)
 );
 
--- INSERT INTO Users(Username, UserPassword)
--- VALUES
--- ()
--- ()
--- ()
--- ()
+INSERT INTO Users(Username, UserPassword)
+VALUES
+()
+()
+()
+()
 
 
 CREATE TABLE Bookings (
